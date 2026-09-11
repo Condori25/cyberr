@@ -1,0 +1,248 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #08090d;
+    --card: rgba(17, 19, 26, 0.9);
+    --primary: #7c3aed;
+    --primary-light: #a78bfa;
+    --text: #ffffff;
+    --muted: #9ca3af;
+    --border: rgba(255, 255, 255, 0.08);
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+
+    font-family: 'Poppins', sans-serif;
+    color: var(--text);
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(124, 58, 237, 0.22),
+            transparent 35%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(59, 130, 246, 0.12),
+            transparent 35%
+        ),
+        var(--bg);
+}
+
+/* CARD */
+
+.login-form {
+    width: 100%;
+    max-width: 420px;
+
+    padding: 45px 35px;
+
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 25px;
+
+    box-shadow:
+        0 30px 80px rgba(0, 0, 0, 0.6),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04);
+
+    backdrop-filter: blur(20px);
+
+    animation: aparecer 0.7s ease;
+}
+
+/* CABEÇALHO */
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header::before {
+    content: "🧠";
+    display: block;
+
+    font-size: 55px;
+    margin-bottom: 15px;
+
+    filter: drop-shadow(0 0 15px rgba(124, 58, 237, 0.6));
+}
+
+.login-header h1 {
+    font-size: 27px;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.login-header::after {
+    content: "Teste sua memória e descubra até onde você consegue chegar!";
+    display: block;
+
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.5;
+    margin-top: 8px;
+}
+
+/* INPUT */
+
+.login-input {
+    width: 100%;
+    height: 55px;
+
+    padding: 0 18px;
+
+    background: #0d0f15;
+    color: white;
+
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+
+    outline: none;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+
+    transition: all 0.3s ease;
+}
+
+.login-input::placeholder {
+    color: #6b7280;
+}
+
+.login-input:hover {
+    border-color: rgba(124, 58, 237, 0.35);
+}
+
+.login-input:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(124, 58, 237, 0.12),
+        0 0 25px rgba(124, 58, 237, 0.12);
+
+    background: #11131a;
+}
+
+/* BOTÃO */
+
+.login-button {
+    width: 100%;
+    height: 55px;
+
+    margin-top: 18px;
+
+    border: none;
+    border-radius: 14px;
+
+    background: linear-gradient(
+        135deg,
+        #7c3aed,
+        #5b21b6
+    );
+
+    color: white;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 15px;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: all 0.3s ease;
+
+    box-shadow:
+        0 10px 25px rgba(124, 58, 237, 0.25);
+}
+
+.login-button:hover:not(:disabled) {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 15px 35px rgba(124, 58, 237, 0.4);
+
+    background: linear-gradient(
+        135deg,
+        #8b5cf6,
+        #6d28d9
+    );
+}
+
+.login-button:active:not(:disabled) {
+    transform: scale(0.97);
+}
+
+/* BOTÃO DESATIVADO */
+
+.login-button:disabled {
+    background: #20232d;
+    color: #6b7280;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+/* ANIMAÇÃO */
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(25px) scale(0.97);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+/* BRILHO */
+
+.login-form::before {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+
+    background: rgba(124, 58, 237, 0.08);
+
+    filter: blur(80px);
+
+    z-index: -1;
+}
+
+/* CELULAR */
+
+@media (max-width: 500px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .login-form {
+        padding: 35px 22px;
+        border-radius: 20px;
+    }
+
+    .login-header h1 {
+        font-size: 23px;
+    }
+
+    .login-header::before {
+        font-size: 48px;
+    }
+
+    .login-input,
+    .login-button {
+        height: 52px;
+    }
+}
